@@ -1,6 +1,7 @@
 FROM mysql:8.0.32-debian
-RUN apt-get -y update
+RUN apt -y update
 RUN apt-get -y install git
+RUN apt-get install -y openjdk-17-jdk
 RUN rm -rf /home/*
 RUN mkdir /home/giame 
 RUN echo "Descargando base de datos: "
