@@ -1,0 +1,8 @@
+
+
+---Launch the server---
+Only need run the init.sh file
+sh init.sh
+
+---Stop the server---
+run "docker compose down"
