@@ -1,28 +1,19 @@
 version: '0.1'
 services:
-  server:
-    container_name: debian
-    image: debian 
-    restart: always
-    build: ./    
-    volumes:
-      - ./giame-server:/etc/giame
-    depends_on:
-      - db
-    entrypoint: /etc/giame/start.sh
   db:
-    container_name: mysql-server
-    image: mysql
+    container_name: giame-debian-server
+    image: mysql:8.0.32-debian
     ports:
-      - "3307:3306"
+      - "3306:3306"
     restart: always
+    build: ./ 
     environment:
       MYSQL_USER: 'giame'
-      MYSQL_PASSWORD: 'giame'
-      MYSQL_ROOT_PASSWORD: giame
+      MYSQL_ROOT_PASSWORD: root
     volumes:
+      - ./giame-server:/etc/giame
       - my-db:/var/lib/mysql  
-
+    
 volumes:
   my-db:
   giame-server:
