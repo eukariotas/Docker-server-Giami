@@ -5,10 +5,11 @@ services:
     image: mysql:8.0.32-debian
     ports:
       - "3306:3306"
+      - "8081:8081"
     restart: always
-    build: ./ 
+    build: ./
     environment:
-      MYSQL_USER: 'giame'
+      MYSQL_USER: 'ukanda'
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./giame-server:/etc/giame
